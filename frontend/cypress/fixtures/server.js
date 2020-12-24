@@ -1,5 +1,7 @@
 const express = require ("express");
-const mockData = [];
+const mockData = [
+      
+];
 const cors = require("cors");
 
 const app = express();
@@ -15,7 +17,7 @@ app.get("/", (req, res) => {
 
 app.post("/user", (req, res) => {
       let userData = req.body;
-      console.log(userData)
+      
       mockData.push(userData);
       res.json(mockData)
 })
@@ -27,5 +29,11 @@ app.post('/reset', (req, res) => {
       res.sendStatus(204)
     })
 
+// app.post('/reset', (req, res) => {
+//       while (mockData.length > 0) {
+//         mockData.pop()
+//       }
+//       res.sendStatus(204)
+//     })
 
 app.listen(PORT, console.log(`srever running on port${PORT}`))
